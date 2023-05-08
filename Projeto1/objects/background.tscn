@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6aj435w1maqv"]
+
+[ext_resource type="Texture2D" uid="uid://hfnoje5tmxdl" path="res://assets/layers/back.png" id="1_h1w1c"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="1_wu817"]
+[ext_resource type="Texture2D" uid="uid://drdminmy3ok6p" path="res://assets/layers/middle.png" id="2_tdaoa"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_wu817")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+scale = Vector2(0.893883, 0.876204)
+motion_mirroring = Vector2(1288.76, 0)
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(644.379, 369.777)
+scale = Vector2(3.35614, 3.08147)
+texture = ExtResource("1_h1w1c")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+scale = Vector2(0.893883, 0.876204)
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1380.5, 0)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(98.4468, 529.557)
+scale = Vector2(1.11871, 1.14129)
+texture = ExtResource("2_tdaoa")
+
+[node name="Middle2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(293.103, 529.557)
+scale = Vector2(1.11871, 1.14129)
+texture = ExtResource("2_tdaoa")
+
+[node name="Middle3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(455.317, 529.557)
+scale = Vector2(1.11871, 1.14129)
+texture = ExtResource("2_tdaoa")
+
+[node name="Middle4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(625.361, 529.557)
+scale = Vector2(1.11871, 1.14129)
+texture = ExtResource("2_tdaoa")
+
+[node name="Middle5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(820.017, 529.557)
+scale = Vector2(1.11871, 1.14129)
+texture = ExtResource("2_tdaoa")
+
+[node name="Middle6" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(993.418, 529.557)
+scale = Vector2(1.11871, 1.14129)
+texture = ExtResource("2_tdaoa")
+
+[node name="Middle7" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1156.75, 529.557)
+scale = Vector2(1.11871, 1.14129)
+texture = ExtResource("2_tdaoa")
+
+[node name="Middle8" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1282.05, 529.557)
+scale = Vector2(1.11871, 1.14129)
+texture = ExtResource("2_tdaoa")
