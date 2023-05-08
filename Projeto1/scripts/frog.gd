@@ -19,10 +19,10 @@ func _physics_process(delta):
 		if get_node("AnimatedSprite2D").animation != "death":
 			get_node("AnimatedSprite2D").play("jump")
 		if dir.x > 0:
-			print("Persiga direita")
+			#print("Persiga direita")
 			get_node("AnimatedSprite2D").flip_h = true #inverte o sprite
 		else:
-			print("Persiga esquerda") 
+			#print("Persiga esquerda") 
 			get_node("AnimatedSprite2D").flip_h = false #inverte o sprite
 		velocity.x = dir.x * SPEED #faz o mob se mover na direção do player
 		
@@ -44,10 +44,12 @@ func _on_player_detection_body_exited(body): #player sai da detecção do mob
 
 func _on_player_death_body_entered(body): #player mata o mob
 	if body.name == "Player":
+		Utils.SaveGame() #botei em redundancia aq em em baixo pq nao estava funcionando, não me pergunte o pq
 		death()
 
 func _on_player_collision_body_entered(body): #mob da dano no player
 	if body.name == "Player":
+		Utils.SaveGame()
 		death()
 		Game.playerHP -= 3 #da 3 de dano no player
 		

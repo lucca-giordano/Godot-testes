@@ -1,6 +1,6 @@
 extends Node
 
-# Como essa é a entrega principal, irei documentar linha a linha para facilitar o entendimento
+# Como essa é a entrega principal, vou documentar linha a linha para facilitar o entendimento
 
 const SAVE_PATH = "res://savegame.bin" # diretório/nome do arquivo do save
 
@@ -19,6 +19,6 @@ func LoadGame():	# função que le o arquivo e carrega os dados
 		if not file.eof_reached(): # como o arquivo é lido linha a linha, esta checagem ve se o "leitor" checou a ultima linha; caso não: prossiga
 			var current_line = JSON.parse_string(file.get_line()) # guarda a linha atual
 			if current_line: # verifica se a linha atual não é vazia
-				Game.playerHP = current_line["playerHP"]
-				Game.moedas = current_line["playerGold"]
+				Game.playerHP = current_line["playerHP"] # carrega os dados do arquivo para as variaveis do jogo
+				Game.moedas = current_line["playerGold"] # carrega os dados do arquivo para as variaveis do jogo
 			
