@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://be8osmn3jb6ry"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_cbet5"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_cbet5")
+
+[node name="ButtonPlay" type="Button" parent="."]
+offset_left = 387.0
+offset_top = 67.0
+offset_right = 734.0
+offset_bottom = 261.0
+text = "Jogar"
+
+[node name="ButtonQuit" type="Button" parent="."]
+offset_left = 391.0
+offset_top = 272.0
+offset_right = 738.0
+offset_bottom = 466.0
+text = "Sair"
+
+[connection signal="pressed" from="ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=20 format=3 uid="uid://dk2wlxupc6rps"]
+
+[ext_resource type="Texture2D" uid="uid://djxwheye40j7c" path="res://assets/sprites/sprites/player/idle/player-idle-1.png" id="1_3i6ff"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_557tq"]
+[ext_resource type="Texture2D" uid="uid://2poaiwwtwxts" path="res://assets/sprites/sprites/player/crouch/player-crouch-1.png" id="2_te8ek"]
+[ext_resource type="Texture2D" uid="uid://btwhs6pck117k" path="res://assets/sprites/sprites/player/idle/player-idle-2.png" id="2_ugc8b"]
+[ext_resource type="Texture2D" uid="uid://dnhm5bvs1857t" path="res://assets/sprites/sprites/player/idle/player-idle-3.png" id="3_0nnfv"]
+[ext_resource type="Texture2D" uid="uid://bwynwrfgrw2dv" path="res://assets/sprites/sprites/player/crouch/player-crouch-2.png" id="3_jeva4"]
+[ext_resource type="Texture2D" uid="uid://duudx8tomnrpx" path="res://assets/sprites/sprites/player/idle/player-idle-4.png" id="4_3qkky"]
+[ext_resource type="Texture2D" uid="uid://bx1tcs21rhyrb" path="res://assets/sprites/sprites/player/hurt/player-hurt-1.png" id="4_ico0a"]
+[ext_resource type="Texture2D" uid="uid://rrm2mjii33ij" path="res://assets/sprites/sprites/player/hurt/player-hurt-2.png" id="5_7ddmv"]
+[ext_resource type="Texture2D" uid="uid://bg6t3ceovueli" path="res://assets/sprites/sprites/player/jump/player-jump-1.png" id="5_agimd"]
+[ext_resource type="Texture2D" uid="uid://c1n778ywn7aeq" path="res://assets/sprites/sprites/player/jump/player-jump-2.png" id="6_m7j57"]
+[ext_resource type="Texture2D" uid="uid://dv2h366jkwayx" path="res://assets/sprites/sprites/player/run/player-run-1.png" id="7_4ftuf"]
+[ext_resource type="Texture2D" uid="uid://br1cpt1cjjw05" path="res://assets/sprites/sprites/player/run/player-run-2.png" id="8_eyahf"]
+[ext_resource type="Texture2D" uid="uid://7q576r8t1iju" path="res://assets/sprites/sprites/player/run/player-run-3.png" id="9_s0f2p"]
+[ext_resource type="Texture2D" uid="uid://bn1wc7k33amo1" path="res://assets/sprites/sprites/player/run/player-run-4.png" id="10_l2wjp"]
+[ext_resource type="Texture2D" uid="uid://dpf3vadgxug6u" path="res://assets/sprites/sprites/player/run/player-run-5.png" id="11_q20j5"]
+[ext_resource type="Texture2D" uid="uid://cff3a34uk4gp6" path="res://assets/sprites/sprites/player/run/player-run-6.png" id="12_i7ufk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqnql"]
+radius = 12.0
+height = 36.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uid6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_te8ek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jeva4")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ico0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ddmv")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3i6ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ugc8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0nnfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3qkky")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_agimd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m7j57")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4ftuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eyahf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_s0f2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l2wjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q20j5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i7ufk")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_557tq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 1)
+shape = SubResource("CapsuleShape2D_wqnql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.5, -1)
+sprite_frames = SubResource("SpriteFrames_uid6p")
+animation = &"hurt"
+frame_progress = 0.893243
