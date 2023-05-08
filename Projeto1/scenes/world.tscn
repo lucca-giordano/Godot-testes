@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://0mai6w64g64j"]
+[gd_scene load_steps=12 format=3 uid="uid://0mai6w64g64j"]
 
 [ext_resource type="PackedScene" uid="uid://dk2wlxupc6rps" path="res://objects/Player.tscn" id="1_kaqnf"]
 [ext_resource type="Texture2D" uid="uid://b5rfxixafceq8" path="res://assets/layers/tileset.png" id="1_y762p"]
 [ext_resource type="Texture2D" uid="uid://ddjmswtgvegmx" path="res://assets/layers/props.png" id="2_50nfn"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="2_jratb"]
 [ext_resource type="Texture2D" uid="uid://hfnoje5tmxdl" path="res://assets/layers/back.png" id="3_hkolx"]
+[ext_resource type="PackedScene" uid="uid://dr7e3miclyc53" path="res://objects/frog.tscn" id="6_ga6h0"]
+[ext_resource type="Script" path="res://scripts/Vida.gd" id="7_04v8f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppljp"]
 texture = ExtResource("1_y762p")
@@ -780,6 +782,20 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ppljp")
 sources/2 = SubResource("TileSetAtlasSource_yd45l")
 
+[sub_resource type="GDScript" id="GDScript_aaqwl"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = \"Moedas: \" + str(Game.moedas)
+"
+
 [node name="World" type="Node2D"]
 
 [node name="Terreno" type="TileMap" parent="."]
@@ -799,5 +815,44 @@ position = Vector2(644.379, 369.777)
 scale = Vector2(3.35614, 3.08147)
 texture = ExtResource("3_hkolx")
 
-[node name="Player" parent="." instance=ExtResource("1_kaqnf")]
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource("1_kaqnf")]
 position = Vector2(231, 151)
+
+[node name="Mobs" type="Node2D" parent="."]
+
+[node name="Frog" parent="Mobs" instance=ExtResource("6_ga6h0")]
+position = Vector2(834, 489)
+
+[node name="Frog2" parent="Mobs" instance=ExtResource("6_ga6h0")]
+position = Vector2(1002, 351)
+
+[node name="Frog3" parent="Mobs" instance=ExtResource("6_ga6h0")]
+position = Vector2(1456, 434)
+
+[node name="Frog4" parent="Mobs" instance=ExtResource("6_ga6h0")]
+position = Vector2(1870, 475)
+
+[node name="Frog5" parent="Mobs" instance=ExtResource("6_ga6h0")]
+position = Vector2(784, 314)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Vida" type="Label" parent="UI"]
+offset_left = 33.0
+offset_top = 528.0
+offset_right = 374.0
+offset_bottom = 701.0
+theme_override_font_sizes/font_size = 59
+text = "Vida: "
+script = ExtResource("7_04v8f")
+
+[node name="Moedas" type="Label" parent="UI"]
+offset_left = 33.0
+offset_top = 578.0
+offset_right = 372.0
+offset_bottom = 757.0
+theme_override_font_sizes/font_size = 59
+text = "Moedas: "
+script = SubResource("GDScript_aaqwl")
