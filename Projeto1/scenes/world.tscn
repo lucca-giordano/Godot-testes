@@ -829,6 +829,10 @@ position = Vector2(784, 314)
 script = ExtResource("7_t67p5")
 
 [node name="Timer" type="Timer" parent="Coletaveis"]
+wait_time = 1.406
+autostart = true
+
+[node name="Cerejas" type="Node2D" parent="Coletaveis"]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -849,3 +853,5 @@ offset_bottom = 757.0
 theme_override_font_sizes/font_size = 59
 text = "Moedas: "
 script = ExtResource("9_cuxl2")
+
+[connection signal="timeout" from="Coletaveis/Timer" to="Coletaveis" method="_on_timer_timeout"]
